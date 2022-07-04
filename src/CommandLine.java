@@ -1,3 +1,5 @@
+import static java.lang.Double.NEGATIVE_INFINITY;
+
 public class CommandLine {
 
     public static void printMax(double... numbers) {
@@ -6,13 +8,11 @@ public class CommandLine {
             return;
         }
 
-        double result = numbers[0];
-
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] > result) {
-                result = numbers[i];
-            }
+        double result = NEGATIVE_INFINITY;
+        for (double n: numbers) {
+            result = Math.max(n, result);
         }
+
         System.out.println("The max value is " + result);
     }
 
